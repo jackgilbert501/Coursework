@@ -37,6 +37,33 @@ public class Users{
             return "{\"Error\": \"Unable to list items.  Error code xx.\"}";
         }
     }
+    @GET
+    @Path("get/{UserID}")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String GetUser(@PathParam("UserID") Integer UserID) {
+        System.out.println("Invoked Users.GetUser() with UserID " + UserID);
+        try {
+            PreparedStatement ps = Main.db.prepareStatement("SELECT UserName, Password, Coach FROM Users WHERE UserID = ?");
+            ps.setInt(1, UserID);
+            ResultSet results = ps.executeQuery();
+            JSONObject response = new JSONObject();
+            if (results.next()== true) {
+                response.put("UserID", UserID);
+                response.put("UserName", results.getString(1));
+                response.put("Passwrd", results.getInt(2));
+                response.put("Coach", results.getBoolean(3));
+
+            }
+            return response.toString();
+        } catch (Exception exception) {
+            System.out.println("Database error: " + exception.getMessage());
+            return "{\"Error\": \"Unable to get item, please see server console for more info.\"}";
+        }
+    }
+
+
+
 
 
     @POST
@@ -100,4 +127,4 @@ public class Users{
 
 
 
-// push
+
