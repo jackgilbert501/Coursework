@@ -14,7 +14,7 @@ function getUsersList() {
             formatUsersList(response);          //this function will create an HTML table of the data (as per previous lesson)
         }
     });
-}
+}   
 
 
 

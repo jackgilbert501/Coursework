@@ -33,10 +33,10 @@ public class Users{
             }
             return response.toString();
         } catch (Exception exception) {
-            System.out.println("Database error: " + exception.getMessage());
-            return "{\"Error\": \"Unable to list items.  Error code xx.\"}";
+        System.out.println("Database error: " + exception.getMessage());
+        return "{\"Error\": \"Unable to list items.  Error code xx.\"}";
         }
-    }
+        }
     @GET
     @Path("get/{UserID}")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
