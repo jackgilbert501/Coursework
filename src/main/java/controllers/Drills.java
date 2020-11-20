@@ -10,7 +10,7 @@ public class Drills {
     PreparedStatement statement = Main.db.prepareStatement(   //using public connection
             "SELECT DrillID,  FROM  WHERE  LIKE ?"
     );
-statement.setString(1, '%' + searchValue.toLowerCase() + '%');  //% is wildcard so FoodName contains search value
+//statement.setString(1, '%' + searchValue.toLowerCase() + '%');  //% is wildcard so FoodName contains search value
     ResultSet resultSet = statement.executeQuery();
 
 }
