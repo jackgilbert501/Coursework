@@ -141,6 +141,7 @@ public class Users{
                     ps2.executeUpdate();
                     JSONObject userDetails = new JSONObject();
                     userDetails.put("UserName", UserName);
+
                     userDetails.put("Token", Token);
                     return userDetails.toString();
                 } else {
@@ -154,6 +155,15 @@ public class Users{
             return "{\"Error\": \"Server side error!\"}";
         }
     }
+
+
+
+
+
+
+
+
+
 
 }
 
