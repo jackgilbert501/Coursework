@@ -181,7 +181,20 @@ public class Users{
         }
     }
 
-
+    //returns the userID with the token value
+    public static int validToken(String Token) {
+        System.out.println("Invoked User.validateToken(), Token value " + Token);
+        try {
+            PreparedStatement statement = Main.db.prepareStatement("SELECT UserID FROM Users WHERE Token = ?");
+            statement.setString(1, Token);
+            ResultSet resultSet = statement.executeQuery();
+            System.out.println("userID is " + resultSet.getInt("UserID"));
+            return resultSet.getInt("UserID");  //Retrieve by column name  (should really test we only get one result back!)
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return -1;  //rogue value indicating error
+        }
+    }
 
 
 
