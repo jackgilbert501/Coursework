@@ -16,9 +16,11 @@ function getUsersList() {
     });
 }
 
+
+
 function UsersLogin() {
-    //debugger;
-    console.log("Invoked UsersLogin() ");
+    debugger;
+    console.log("Invoked UsersLogin()");
     let url = "/users/login";
     let formData = new FormData(document.getElementById('LoginForm'));
 
